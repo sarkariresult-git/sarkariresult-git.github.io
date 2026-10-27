@@ -1,0 +1,31 @@
+---
+layout: default
+title: Home
+---
+<div class="grid-3-column">
+  
+  <!-- Latest Jobs Column -->
+  <div class="column">
+    <h2 style="color: {{ site.colors.red }};">Latest Jobs</h2>
+    <ul>
+      {% for post in site.categories.latest-jobs limit:10 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Results Column -->
+  <div class="column">
+    <h2 style="color: {{ site.colors.navy_blue }};">Results</h2>
+    <ul>
+      {% for post in site.categories.results limit:10 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
