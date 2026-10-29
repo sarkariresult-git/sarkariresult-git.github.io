@@ -11,6 +11,7 @@
     {%- else -%}
         {%- assign full_title = site.title -%}
     {%- endif -%}
+    
     {%- assign meta_desc = page.description -%}
     {%- if meta_desc == nil or meta_desc == '' -%}
         {%- if page.excerpt -%}
@@ -19,6 +20,7 @@
             {%- assign meta_desc = site.description -%}
         {%- endif -%}
     {%- endif -%}
+    
     {%- assign meta_image = page.image | default: '/assets/img/og-image.jpg' -%}
     {%- assign canonical = site.url | append: page.url -%}
     {%- if page.url == '/index.html' -%}{%- assign canonical = site.url | append: '/' -%}{%- endif -%}
@@ -27,9 +29,13 @@
     <meta name="description" content="{{ meta_desc | escape }}">
     <meta name="author" content="{{ site.title | escape }}">
     <link rel="canonical" href="{{ canonical }}">
+    
     {%- if page.noindex %}
     <meta name="robots" content="noindex, follow">
+    {%- else %}
+    <meta name="robots" content="index, follow">
     {%- endif %}
+    
     {%- if site.google_verification and site.google_verification != "" %}
     <meta name="google-site-verification" content="{{ site.google_verification }}">
     {%- endif %}
@@ -80,6 +86,42 @@
     </header>
 
     <main id="main">
+        {%- if page.layout == 'post' %}
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "JobPosting",
+          "title": {{ page.title | jsonify }},
+          "description": {{ page.content | strip_html | truncatewords: 200 | jsonify }},
+          "datePosted": "{{ page.date | date: '%Y-%m-%d' }}",
+          "validThrough": "{{ page.last_date | default: '2027-12-31' | date: '%Y-%m-%d' }}",
+          "employmentType": "{{ page.employment_type | default: 'FULL_TIME' }}",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": {{ page.organization | default: "Government Department" | jsonify }},
+            "sameAs": "{{ page.organization_url | default: site.url }}"
+          },
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": {{ page.job_location | default: "India" | jsonify }},
+              "addressCountry": "IN"
+            }
+          },
+          "baseSalary": {
+            "@type": "MonetaryAmount",
+            "currency": "INR",
+            "value": {
+              "@type": "QuantitativeValue",
+              "value": "{{ page.salary | default: 'As per rules' }}",
+              "unitText": "MONTH"
+            }
+          }
+        }
+        </script>
+        {%- endif %}
+        
         {{ content }}
     </main>
 
