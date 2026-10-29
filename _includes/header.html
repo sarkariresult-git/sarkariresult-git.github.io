@@ -1,0 +1,27 @@
+<div class="header-container">
+    <div class="left-section">
+        <div class="logo"><a href="/" aria-label="{{ site.title | escape }} - Home">{{ site.title }}</a></div>
+        <nav id="mainNav" aria-label="Main navigation">
+            <ul class="nav-links">
+                {%- for item in site.data.nav %}
+                {%- assign is_active = false -%}
+                {%- if page.url == item.url -%}{%- assign is_active = true -%}{%- endif %}
+                <li{% if item.live %} class="live"{% endif %}><a href="{{ item.url }}"{% if is_active %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
+    </div>
+    <div class="right-section">
+        <button class="hamburger" id="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+            <svg class="icon-open" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="26" aria-hidden="true">
+                <line x1="3" x2="21" y1="12" y2="12"></line>
+                <line x1="3" x2="21" y1="6" y2="6"></line>
+                <line x1="3" x2="21" y1="18" y2="18"></line>
+            </svg>
+            <svg class="icon-close" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="26" aria-hidden="true">
+                <line x1="18" x2="6" y1="6" y2="18"></line>
+                <line x1="6" x2="18" y1="6" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</div>
