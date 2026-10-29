@@ -8,6 +8,7 @@ tags: [UPPSC, RO-ARO, UP-Jobs]
 image: "/assets/img/uppsc-banner.jpg"
 ---
 
+
 <div class="sp-post">
 <p class="sp-intro">Uttar Pradesh Public Service Commission (UPPSC) has released a notification for <b>501 Vacancies</b> of Review Officer / Assistant Review Officer. Application starts on <b>26 October 2026</b> and the last date is <b>26 November 2026</b>.</p>
 <div class="sp-box"><div class="sp-two"><div><div class="sp-h">Important Dates</div><ul><li>Online Apply Start Date : <b>26 October 2026</b></li><li>Online Apply Last Date : <b>26 November 2026</b></li><li>Correction Last Date : 03 December 2026</li><li>Pre Exam Date : Notify Later</li></ul></div><div><div class="sp-h">Application Fee</div><ul><li>For General / OBC / EWS : ₹ 125/-</li><li>For SC / ST : ₹ 65/-</li><li>For PH : ₹ 25/-</li><li>Payment Mode : Debit Card, Credit Card, Net Banking, IMPS</li></ul></div></div></div>
