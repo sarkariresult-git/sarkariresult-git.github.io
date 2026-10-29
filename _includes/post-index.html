@@ -1,0 +1,18 @@
+{%- assign items = site.categories[include.category] -%}
+<section>
+    <h1 class="section-title">{{ include.heading }}</h1>
+    <div class="glass-panel list-panel">
+        {%- if items and items.size > 0 %}
+        <ul class="post-list job-list" data-per-page="10">
+            {%- for post in items %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                <time class="date-badge" datetime="{{ post.date | date_to_xmlschema }}">🕒 {{ post.date | date: "%d %b, %Y" }}</time>
+            </li>
+            {%- endfor %}
+        </ul>
+        {%- else %}
+        <p class="empty-note">No posts here yet. Check back soon.</p>
+        {%- endif %}
+    </div>
+</section>
