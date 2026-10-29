@@ -1,0 +1,39 @@
+---
+layout: default
+title: Website Sitemap
+description: "Sitemap of Sarkari Result: all pages, posts and tools."
+---
+<div class="sitemap-container">
+    <div class="header">
+        <h1>Site Directory</h1>
+        <p>Explore all pages, tools, and resources available on this website.</p>
+    </div>
+
+    <h2 class="sitemap-heading">Pages</h2>
+    <div class="links-grid">
+        {%- for p in site.html_pages %}
+        {%- if p.title and p.url != '/404.html' %}
+        <a class="sitemap-card" href="{{ p.url }}">
+            <span class="page-title">{{ p.title }}</span>
+            <span class="page-url">{{ site.url }}{{ p.url }}</span>
+        </a>
+        {%- endif %}
+        {%- endfor %}
+    </div>
+
+    {%- if site.posts.size > 0 %}
+    <h2 class="sitemap-heading">Posts</h2>
+    <div class="links-grid">
+        {%- for p in site.posts %}
+        <a class="sitemap-card" href="{{ p.url }}">
+            <span class="page-title">{{ p.title }}</span>
+            <span class="page-url">{{ site.url }}{{ p.url }}</span>
+        </a>
+        {%- endfor %}
+    </div>
+    {%- endif %}
+
+    <div class="text-center">
+        <a class="back-btn" href="/">← Back to Homepage</a>
+    </div>
+</div>

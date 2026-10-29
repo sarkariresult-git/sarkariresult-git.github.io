@@ -1,0 +1,14 @@
+---
+layout: default
+title: Contact Us
+description: "Contact Sarkari Result for corrections, feedback or suggestions."
+---
+<section>
+    <h1 class="section-title">Contact Us</h1>
+    <div class="glass-panel">
+        <p class="contact-text">Found a wrong date or a broken link in a post? Want to suggest an update? Message us and we will fix it as soon as possible.</p>
+        {% if site.email and site.email != "" %}<a class="contact-link" href="mailto:{{ site.email }}">📧 Email Us</a>{% endif %}
+        {% if site.telegram and site.telegram != "" %}<a class="contact-link contact-link--alt" href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram</a>{% endif %}
+        {% if site.youtube and site.youtube != "" %}<a class="contact-link contact-link--alt" href="{{ site.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+    </div>
+</section>

@@ -1,32 +1,32 @@
 ---
 layout: default
 title: Home
+seo_title: "Sarkari Result - Latest Govt Jobs, Results & Admit Cards"
+description: "Latest government jobs, online forms, results and admit cards in one place. Check the newest Sarkari notifications quickly."
 ---
-<div class="grid-3-column">
-  
-  <!-- Latest Jobs Column -->
-  <div class="column">
-    <h2 style="color: {{ site.colors.red }};">Latest Jobs</h2>
-    <ul>
-      {% for post in site.categories.latest-jobs limit:10 %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <!-- Results Column -->
-  <div class="column">
-    <h2 style="color: {{ site.colors.navy_blue }};">Results</h2>
-    <ul>
-      {% for post in site.categories.results limit:10 %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-
-</div>
-
+<section class="board">
+    <h1 class="section-title">Latest Govt Jobs, Results &amp; Admit Cards</h1>
+    <div class="updates-grid">
+        {%- for entry in site.data.categories %}
+        {%- assign key = entry[0] -%}
+        {%- assign meta = entry[1] -%}
+        {%- assign items = site.categories[key] %}
+        <div class="glass-column">
+            <h2 class="column-header">{{ meta.title }}</h2>
+            {%- if items and items.size > 0 %}
+            <ul class="post-list">
+                {%- for post in items limit: 10 %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <time class="mini-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+                </li>
+                {%- endfor %}
+            </ul>
+            {%- else %}
+            <p class="empty-note">No updates yet.</p>
+            {%- endif %}
+            <a href="{{ meta.url }}" class="read-more-btn">View All {{ meta.title }}</a>
+        </div>
+        {%- endfor %}
+    </div>
+</section>

@@ -1,0 +1,36 @@
+# ---------- Site ----------
+title: Sarkari Result
+description: Latest government jobs, results, admit cards and exam updates in one place. Fast, clean and mobile friendly.
+url: "https://sarkariresult-git.github.io"
+baseurl: ""
+lang: en
+
+# Post URLs: /post-slug.html
+permalink: /:title.html
+
+# ---------- Contact / social (EDIT THESE) ----------
+# Khali chhodne par wo link site par dikhega hi nahi (koi broken link nahi).
+email: ""                 # e.g. you@gmail.com
+telegram: ""              # e.g. https://t.me/yourchannel
+youtube: ""               # e.g. https://youtube.com/@yourchannel
+linkedin: ""
+github: ""
+google_verification: ""   # Search Console HTML-tag token (sirf content="..." wala hissa)
+
+# ---------- Build ----------
+plugins:
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

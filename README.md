@@ -1,16 +1,31 @@
-# Sarkari Result Portal (sarkariresult-git.github.io)
+# sarkariresult-git.github.io
 
-Yeh ek static web portal hai jo latest government jobs, recruitment notifications, exam results, aur admit cards ki jankari provide karta hai. Ise candidates ko fast aur accurate information dene ke liye design kiya gaya hai.
+Jekyll site (GitHub Pages). Homepage = live board (Latest Jobs | Results | Admit Cards).
 
-## 🚀 Features
-- **Latest Updates:** Nayi sarkari naukriyo (Sarkari Jobs) ki turant jankari.
-- **Exam Results & Admit Cards:** Direct links ke sath results aur admit cards download karne ki suvidha.
-- **Syllabus & Answer Keys:** Sabhi major government exams ke syllabus aur official answer keys.
-- **Fast & Responsive:** Mobile-first approach ke sath banaya gaya fast-loading user interface.
+| Kya badalna hai | Kahan |
+|---|---|
+| Site name, description, email, Telegram, YouTube | `_config.yml` (khali = link hide) |
+| Menu links | `_data/nav.yml` |
+| Homepage ke columns / categories | `_data/categories.yml` |
+| Header / Footer | `_includes/header.html`, `_includes/footer.html` |
+| Saari CSS | `style.css` |
 
-## 🛠️ Tech Stack
-- HTML5, CSS3, JavaScript
-- GitHub Pages (Hosting)
+## Naya post
+`_posts/YYYY-MM-DD-slug.md`:
 
-## 📌 About
-Yeh repository public use aur education/information purpose ke liye maintain ki ja rahi hai. Iska aim government job aspirants (jaise SSC, UPSC, Railway, Banking) ke liye ek seamless experience create karna hai.
+```
+---
+title: "Post title"
+date: 2026-10-28
+category: latest-jobs      # latest-jobs | results | admit-cards
+description: "1-2 line summary (SEO)"
+image: "/assets/img/banner.jpg"   # optional
+---
+(content)
+```
+Post ke andar title `<h1>` mat rakho, layout khud title dikhata hai.
+
+## Nayi category (e.g. Answer Key)
+1. `_data/categories.yml` mein entry add karo.
+2. `latest-jobs.html` copy karke naya page banao (category + heading badlo).
+3. Post mein `category: answer-key` likho. Homepage par column apne aap aa jayega.

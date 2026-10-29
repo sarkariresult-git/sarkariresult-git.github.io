@@ -1,0 +1,85 @@
+---
+layout: default
+title: "Govt Job Photo & Signature Resizer – Compress to 20KB/50KB Free"
+seo_title: "Govt Job Photo & Signature Resizer – Compress to 20KB/50KB Free"
+description: "Free online image compression tool for govt job applications. Resize passport photos and signatures to exact dimensions (10KB, 20KB, 50KB) instantly. 100% private, nothing is uploaded."
+scripts: [/assets/js/resizer.js]
+---
+<div class="content-container">
+    <h1>Govt Job Photo &amp; Signature Resizer – Compress to 20KB/50KB Free</h1>
+
+    <div class="tool-ui" id="resizer">
+        <div class="tool-grid">
+            <div class="field field--wide">
+                <label for="rz-file">1. Upload photo or signature</label>
+                <input type="file" id="rz-file" accept="image/*">
+            </div>
+            <div class="field field--wide">
+                <label for="rz-preset">2. Choose a preset (or fill custom values)</label>
+                <select id="rz-preset">
+                    <option value="custom">Custom</option>
+                    <option value="photo">Photo 3.5 × 4.5 cm — 20 to 50 KB</option>
+                    <option value="sign">Signature 4 × 2 cm — 10 to 20 KB</option>
+                </select>
+            </div>
+            <div class="field"><label for="rz-w">Width (px, optional)</label><input type="number" id="rz-w" min="16" max="6000" inputmode="numeric" placeholder="e.g. 413"></div>
+            <div class="field"><label for="rz-h">Height (px, optional)</label><input type="number" id="rz-h" min="16" max="6000" inputmode="numeric" placeholder="e.g. 531"></div>
+            <div class="field"><label for="rz-min">Minimum size (KB)</label><input type="number" id="rz-min" min="0" max="5000" inputmode="numeric" placeholder="e.g. 20"></div>
+            <div class="field"><label for="rz-max">Maximum size (KB)</label><input type="number" id="rz-max" min="2" max="5000" inputmode="numeric" value="50"></div>
+        </div>
+        <p class="tool-hint">If you enter both width and height, the image is center-cropped to that exact size. With only one, the other side keeps the original proportion.</p>
+        <button type="button" id="rz-go" disabled>3. Resize &amp; Compress</button>
+        <p id="rz-status" class="tool-status" role="status" aria-live="polite">Choose an image to begin.</p>
+
+        <div id="rz-out" class="tool-output" hidden>
+            <img id="rz-img" alt="Resized image preview">
+            <p id="rz-info" class="tool-info"></p>
+            <a id="rz-dl" class="btn" href="#" download>⬇ Download JPG</a>
+        </div>
+    </div>
+
+    <h2>How to Resize Photo and Signature for Govt Job Applications?</h2>
+    <p>Govt portals often reject applications due to incorrect image sizes or dimensions. Use this quick client-side tool to get the perfect fit:</p>
+    <ol>
+        <li><strong>Upload:</strong> Select your raw photograph or scanned signature.</li>
+        <li><strong>Select Target Size:</strong> Pick a preset or enter your required maximum file size (e.g., 50KB for photos, 20KB for signatures).</li>
+        <li><strong>Download:</strong> Press the resize button. The image is processed instantly and you can download the JPG.</li>
+    </ol>
+    <p class="privacy-note">🔒 Privacy Note: All image processing happens directly within your web browser. No data is uploaded to any server.</p>
+
+    <h2>Standard Dimensions for Indian Govt Exams</h2>
+    <div class="table-wrap">
+<table>
+            <thead>
+                <tr>
+                    <th>Recruitment Board</th>
+                    <th>Document Type</th>
+                    <th>Standard Dimensions</th>
+                    <th>Required Size Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>SSC (CGL, CHSL, GD)</strong></td><td>Photograph</td><td>3.5 cm × 4.5 cm</td><td>20 KB to 50 KB</td></tr>
+                <tr><td><strong>SSC</strong></td><td>Signature</td><td>4.0 cm × 2.0 cm</td><td>10 KB to 20 KB</td></tr>
+                <tr><td><strong>RRB (NTPC, Group D)</strong></td><td>Photograph</td><td>35 mm × 45 mm</td><td>20 KB to 50 KB</td></tr>
+                <tr><td><strong>IBPS / SBI (Banking)</strong></td><td>Photograph</td><td>4.5 cm × 3.5 cm</td><td>20 KB to 50 KB</td></tr>
+                <tr><td><strong>UPSC (Civil Services)</strong></td><td>Photo & Sign</td><td>350px (min) to 1000px (max)</td><td>20 KB to 300 KB</td></tr>
+            </tbody>
+        </table>    </div>
+    <p class="note">Sizes differ between notifications and change every year. Always confirm the exact photo and signature rules in the official notification before uploading.</p>
+
+    <h2>Frequently Asked Questions (FAQs)</h2>
+<div class="faq-question">How do I reduce my photo size below 50KB without making it blurry?</div>
+        <div class="faq-answer">The tool re-encodes your image as JPG and automatically finds the highest quality that still fits under your size limit, so faces and signature strokes stay as sharp as possible.</div>
+
+        <div class="faq-question">What is the correct background and attire for standard exam photos?</div>
+        <div class="faq-answer">Always stand against a plain, light-colored, or solid white background. For formal exams like RRB NTPC, it is highly recommended to wear a formal white shirt and black trousers.</div>
+
+        <div class="faq-question">Can I use this tool on my mobile phone?</div>
+        <div class="faq-answer">Yes. The interface is fully responsive and lightweight, making it easy to upload, crop, and resize images directly from your Android or iOS device.</div>
+    <div class="promo-banner">
+        <h3>Looking for the latest recruitment updates?</h3>
+        <p>Browse the newest notifications and apply online.</p>
+        <a class="promo-btn" href="/latest-jobs.html">See Latest Jobs →</a>
+    </div>
+</div>
