@@ -1,20 +1,53 @@
 ---
 layout: default
 ---
-<div class="job-container">
-  <h1>{{ page.title }}</h1>
-  
-  <div class="job-content">
-    {{ content }}
-  </div>
-</div>
+<div class="progress-container" aria-hidden="true"><div class="progress-bar" id="myBar"></div></div>
 
-<!-- SEO: JobPosting Schema Automation ke liye -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "JobPosting",
-  "title": "{{ page.title }}",
-  "datePosted": "{{ page.date | date_to_xmlschema }}"
-}
-</script>
+<article class="post">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">›</span>
+        {%- assign cat = site.data.categories[page.category] -%}
+        {%- if cat %} <a href="{{ cat.url }}">{{ cat.title }}</a> <span aria-hidden="true">›</span>{% endif %}
+        <span>{{ page.title }}</span>
+    </nav>
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {%- if cat %}<a class="post-cat" href="{{ cat.url }}">{{ cat.title }}</a>{% endif %}
+    </div>
+
+    {%- if page.image %}
+    <img class="post-cover" src="{{ page.image }}" alt="{{ page.title | escape }}" width="1200" height="805" fetchpriority="high">
+    {%- endif %}
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    {%- assign share_url = site.url | append: page.url -%}
+    <div class="share-block">
+        <h2 class="share-title">Share this update</h2>
+        <div class="share-container">
+            <a class="share-btn share-wa" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?text={{ page.title | append: ' - ' | append: share_url | url_encode }}">WhatsApp</a>
+            <a class="share-btn share-tg" target="_blank" rel="noopener" href="https://t.me/share/url?url={{ share_url | url_encode }}&amp;text={{ page.title | url_encode }}">Telegram</a>
+            <a class="share-btn share-fb" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}">Facebook</a>
+            <a class="share-btn share-tw" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&amp;text={{ page.title | url_encode }}">X</a>
+        </div>
+    </div>
+
+    {%- if page.category %}
+    {%- assign related = site.categories[page.category] | where_exp: "p", "p.url != page.url" %}
+    {%- if related.size > 0 %}
+    <aside class="related-posts">
+        <h2>You May Also Like</h2>
+        <ul>
+            {%- for r in related limit: 3 %}
+            <li><a href="{{ r.url }}">{{ r.title }}</a></li>
+            {%- endfor %}
+        </ul>
+    </aside>
+    {%- endif %}
+    {%- endif %}
+</article>

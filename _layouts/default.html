@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {%- if page.seo_title -%}
+        {%- assign full_title = page.seo_title -%}
+    {%- elsif page.title -%}
+        {%- assign full_title = page.title | append: ' | ' | append: site.title -%}
+    {%- else -%}
+        {%- assign full_title = site.title -%}
+    {%- endif -%}
+    {%- assign meta_desc = page.description -%}
+    {%- if meta_desc == nil or meta_desc == '' -%}
+        {%- if page.excerpt -%}
+            {%- assign meta_desc = page.excerpt | strip_html | strip_newlines | truncate: 160 -%}
+        {%- else -%}
+            {%- assign meta_desc = site.description -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- assign meta_image = page.image | default: '/assets/img/og-image.jpg' -%}
+    {%- assign canonical = site.url | append: page.url -%}
+    {%- if page.url == '/index.html' -%}{%- assign canonical = site.url | append: '/' -%}{%- endif -%}
+
+    <title>{{ full_title | escape }}</title>
+    <meta name="description" content="{{ meta_desc | escape }}">
+    <meta name="author" content="{{ site.title | escape }}">
+    <link rel="canonical" href="{{ canonical }}">
+    {%- if page.noindex %}
+    <meta name="robots" content="noindex, follow">
+    {%- endif %}
+    {%- if site.google_verification and site.google_verification != "" %}
+    <meta name="google-site-verification" content="{{ site.google_verification }}">
+    {%- endif %}
+
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:url" content="{{ canonical }}">
+    <meta property="og:title" content="{{ full_title | escape }}">
+    <meta property="og:description" content="{{ meta_desc | escape }}">
+    <meta property="og:image" content="{{ site.url }}{{ meta_image }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ full_title | escape }}">
+    <meta name="twitter:description" content="{{ meta_desc | escape }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ meta_image }}">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/style.css">
+
+    {%- if page.layout == 'post' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ meta_desc | jsonify }},
+      "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date: '%Y-%m-%d' }}",
+      "image": "{{ site.url }}{{ meta_image }}",
+      "mainEntityOfPage": "{{ canonical }}",
+      "author": { "@type": "Organization", "name": {{ site.title | jsonify }}, "url": "{{ site.url }}" },
+      "publisher": { "@type": "Organization", "name": {{ site.title | jsonify }}, "url": "{{ site.url }}" }
+    }
+    </script>
+    {%- endif %}
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        {% include header.html %}
+    </header>
+
+    <main id="main">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="/assets/js/main.js" defer></script>
+    {%- for src in page.scripts %}
+    <script src="{{ src }}" defer></script>
+    {%- endfor %}
+</body>
+</html>
