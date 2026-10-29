@@ -1538,3 +1538,87 @@ section { padding-block: clamp(1.25rem, 3vw, 2rem); }
     .custom-footer { margin-top: 1.5rem; padding: 1.75rem max(1rem, calc((100% - 1280px) / 2)) 1rem; }
     .footer-upper { gap: 2rem; margin-bottom: 1.25rem; }
 }
+
+
+/* =========================================================
+   MATERIAL DESIGN 3 OVERRIDES
+   Load this file as the complete stylesheet.
+   ========================================================= */
+:root {
+    --navy: #123047;
+    --navy-2: #173f56;
+    --navy-3: #24536a;
+    --green: #006b54;
+    --green-bright: #008f72;
+    --green-deep: #00513f;
+    --blue: #0061a4;
+    --blue-deep: #004a7c;
+    --bg: #f5f7fa;
+    --bg-alt: #edf2f6;
+    --surface: #ffffff;
+    --surface-solid: #ffffff;
+    --surface-hover: #f0f5f8;
+    --border: #dce4eb;
+    --border-strong: #9bcbbd;
+    --text: #172b3a;
+    --text-dim: #455a68;
+    --text-muted: #657987;
+    --accent: #006b54;
+    --accent-2: #0061a4;
+    --accent-grad: linear-gradient(135deg, #006b54, #0077a8);
+    --radius: 16px;
+    --radius-lg: 24px;
+    --radius-sm: 12px;
+    --shadow: 0 2px 8px rgba(20, 45, 60, .08), 0 1px 3px rgba(20, 45, 60, .05);
+    --shadow-lg: 0 8px 24px rgba(20, 45, 60, .13);
+    --glow-green: 0 0 0 rgba(0, 107, 84, 0);
+    --transition: .22s ease;
+    color-scheme: light;
+}
+body {
+    background: #f5f7fa;
+    color: var(--text);
+}
+body::before { display: none; }
+header { background: rgba(255,255,255,.94); box-shadow: 0 1px 4px rgba(20,45,60,.08); }
+.header-container { background: rgba(255,255,255,.94); border-bottom: 1px solid var(--border); backdrop-filter: blur(16px); }
+.logo a::before, .footer-left .f-logo { color: #fff; background: var(--accent-grad); box-shadow: none; }
+nav a, .nav-links a { color: #526775; }
+nav a:hover, .nav-links a:hover { background: #e8f2f6; color: #123047; }
+nav a.active, .nav-links a.active { color: #00513f; background: #dcefe9; }
+button, .btn, .button, .download-btn, a.button-link, .read-more-btn, .back-btn, .promo-btn { border-radius: 12px; box-shadow: 0 2px 5px rgba(0,80,65,.14); }
+.btn-secondary, .button-secondary, .btn-preview { background: #e5f1f8; border-color: #c5dce9; color: #005b91; }
+.glass-panel, .content-container, .theme-card, .project-card, .service-card, .sitemap-card, .error-container, .live-card, .contact-card, .tool-card, .skill-item, .glass-column, article, .sitemap-container {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: none;
+}
+.glass-panel::before, .theme-card::before, .project-card::before, .service-card::before, .skill-item::before { display: none; }
+.theme-card:hover, .project-card:hover, .service-card:hover, .skill-item:hover, .sitemap-card:hover, .live-card:hover, .tool-card:hover { transform: translateY(-2px); border-color: #a8d2c6; box-shadow: var(--shadow-lg); }
+.theme-card h3, .project-card h3, .service-card h3 { color: var(--accent); }
+.column-header { background: #dcefe9; color: #124b40; border-radius: 10px; }
+.post-list li { border-bottom-color: #e4ebf0; }
+.post-list li a, .related-posts a { color: #455a68; }
+.post-list li a:hover, .related-posts a:hover { color: var(--accent); }
+input, textarea, select { background: #fff; border-color: #cbd7df; color: var(--text); }
+input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,107,84,.12); }
+.custom-footer { background: #eaf0f4; border-top-color: var(--border); backdrop-filter: none; }
+.footer-left .f-title, .f-column h4 { color: #172b3a; }
+.footer-left .f-desc, .f-column ul li a, .footer-bottom { color: #657987; }
+.social-icons a { background: #fff; border-color: var(--border); color: #526775; }
+article h1 { color: #124b40; background: none; -webkit-text-fill-color: initial; border-bottom-color: #cce4dc; }
+article h2 { color: #172b3a; }
+article h3 { color: #0061a4; }
+code { background: #e7f2f8; color: #005b91; }
+th { background: #e7f0f5; color: #173047; }
+td { color: #455a68; }
+tr:nth-child(even) td { background: #f5f8fa; }
+.note, .privacy-note { background: #e7f4ef; border-color: #c2e2d7; color: #35584f; }
+.privacy-note { background: #e9f3fa; border-color: #c7e0ef; }
+.telegram-float { box-shadow: 0 3px 10px rgba(0,136,204,.2); }
+.sp-box { background: #fff; }
+.sp-h { background: #e4f2ed; color: #174d40; }
+.tool-ui { background: #f4f9fb; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: light; } }
