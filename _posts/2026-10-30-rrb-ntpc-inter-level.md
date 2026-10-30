@@ -2,8 +2,10 @@
 layout: post
 title: "RRB NTPC 10+2 UG Level 07/2026 Online Form Started"
 date: 2026-10-30
-category: latest-jobs
+category: latest-jobs, results
 description: "RRB NTPC Undergraduate (CEN 07/2026) online application forms are now open for various posts. Check eligibility criteria and apply online."
+tags: [UPPSC, RO-ARO, UP-Jobs]
+image: "/assets/img/uppsc-banner.jpg"
 ---
 
 # Railway Recruitment Board (RRB)
